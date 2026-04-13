@@ -47,7 +47,7 @@ class UsersController {
                     mode: 'insensitive',
                 } : undefined,
             },
-            select: { id: true, name: true, email: true, role: true, createdAt: true, updatedAt: true, games: true },
+            select: { id: true, name: true, email: true, role: true, createdAt: true, orders: true },
             orderBy: { name: 'asc' }
         })
 
