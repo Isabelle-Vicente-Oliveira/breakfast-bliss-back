@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img src=".github/logo.png" alt="Breakfast Bliss Logo" width="80px" height="80px">
+  <img src=".github/logo.png" alt="Breakfast Bliss Logo" width="150px" height="150px">
 </p>
 <h1 align="center"> Breakfast Bliss - Back End</h1>
 <h3 align="center"> API para gestão de operações de pedidos de um restaurante </h3>
@@ -28,46 +28,70 @@ O Breakfast Bliss - Back End é o api por trás de uma plataforma de pedidos de 
 
 A API segue os padrões REST, utilizando os métodos HTTP para representar ações específicas sobre os recursos do sistema:
 
-🔐 Autenticação (/sessions)
-POST: Responsável pelo login. Recebe as credenciais do usuário, valida a senha com bcrypt e retorna o Token JWT necessário para acessar as rotas protegidas.
+<h3>🔐 Autenticação (/sessions)</h3>
+- POST: Responsável pelo login. Recebe as credenciais do usuário, valida a senha com bcrypt e retorna o Token JWT necessário para acessar as rotas protegidas.
+ <p align="center"> 
+   <img src=".github/create-session.gif" alt="Gif" width="880px" height="800px">
+ </p>
 
-👥 Usuários (/users)
-POST: Permite o autocadastro de novos clientes na plataforma.
+ <h3>👥 Usuários (/users)</h3>
+- POST: Permite o autocadastro de novos clientes na plataforma.
+ <p align="center"> 
+   <img src=".github/create-user.gif" alt="Gif" width="880px" height="800px">
+ </p>
+ - GET: (Restrito a Admin) Lista todos os usuários cadastrados. Permite filtros por nome para gestão administrativa.
+  <p align="center"> 
+   <img src=".github/list-user.gif" alt="Gif" width="880px" height="800px">
+ </p>
 
-GET: (Restrito a Admin) Lista todos os usuários cadastrados. Permite filtros por nome para gestão administrativa.
+ <h3>🍳 Ingredientes (/ingredients)</h3>
+- GET: Permite que usuários autenticados listem todos os ingredientes disponíveis (útil para montar filtros no frontend).
+<p align="center"> 
+   <img src=".github/list-ingredients.gif" alt="Gif" width="880px" height="800px">
+</p>
+- POST: (Restrito a Admin) Cadastra um novo insumo básico no sistema.
+<p align="center"> 
+   <img src=".github/create-ingredients.gif" alt="Gif" width="880px" height="800px">
+</p>
+- PATCH: (Restrito a Admin) Permite editar informações de um ingrediente existente sem a necessidade de reenviar todos os dados.
+<p align="center"> 
+   <img src=".github/patch-ingredients.gif" alt="Gif" width="880px" height="800px">
+</p>
 
-🍳 Ingredientes (/ingredients)
-GET: Permite que usuários autenticados listem todos os ingredientes disponíveis (útil para montar filtros no frontend).
+ <h3>🍕 Itens do Menu (/menu-items)</h3>
+- GET: Rota pública que lista os pratos do cardápio. Suporta busca por nome e filtro por ingredientes.
+<p align="center"> 
+   <img src=".github/list-menu.gif" alt="Gif" width="880px" height="800px">
+</p>
+- GET /:id: Retorna os detalhes completos de um item específico, incluindo sua lista de ingredientes vinculados.
+<p align="center"> 
+   <img src=".github/show-menu-item.gif" alt="Gif" width="880px" height="800px">
+</p>
 
-POST: (Restrito a Admin) Cadastra um novo insumo básico no sistema.
+- POST: (Restrito a Admin) Cria um novo item no menu. Esta rota utiliza o Multer para processar o upload da imagem do prato.
+- DELETE: (Restrito a Admin) Remove permanentemente um item do catálogo.
 
-PATCH: (Restrito a Admin) Permite editar informações de um ingrediente existente sem a necessidade de reenviar todos os dados.
 
-🍕 Itens do Menu (/menu-items)
-GET: Rota pública que lista os pratos do cardápio. Suporta busca por nome e filtro por ingredientes.
+ <h3> 🛒 Carrinho (/cart) </h3>
+- GET: Retorna todos os itens que o usuário logado adicionou ao seu carrinho, junto com o cálculo do valor total.
+<p align="center"> 
+   <img src=".github/get-cart-item.gif" alt="Gif" width="880px" height="800px">
+</p>
+- POST: Adiciona um produto ao carrinho. Se o item já existir, a lógica do controlador incrementa automaticamente a quantidade.
+<p align="center"> 
+   <img src=".github/post-cart-item.gif" alt="Gif" width="880px" height="800px">
+</p>
 
-GET /:id: Retorna os detalhes completos de um item específico, incluindo sua lista de ingredientes vinculados.
-
-POST: (Restrito a Admin) Cria um novo item no menu. Esta rota utiliza o Multer para processar o upload da imagem do prato.
-
-DELETE: (Restrito a Admin) Remove permanentemente um item do catálogo.
-
-🛒 Carrinho (/cart)
-GET: Retorna todos os itens que o usuário logado adicionou ao seu carrinho, junto com o cálculo do valor total.
-
-POST: Adiciona um produto ao carrinho. Se o item já existir, a lógica do controlador incrementa automaticamente a quantidade.
-
-PATCH /:id: Ajusta a quantidade de um item específico que já está no carrinho.
-
-DELETE /:id: Remove um item do carrinho do usuário.
+- PATCH /:id: Ajusta a quantidade de um item específico que já está no carrinho.
+- DELETE /:id: Remove um item do carrinho do usuário.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 <h2 id="instalacao"> 🚀 Instalação e Configuração</h2>
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/game-library-api.git](https://github.com/seu-usuario/game-library-api.git)
-    cd game-library-api
+    git clone https://github.com/Isabelle-Vicente-Oliveira/breakfast-bliss-back.git
+    cd breakfast-bliss-back
     ```
 
 2.  **Instale as dependências:**
@@ -94,16 +118,14 @@ DELETE /:id: Remove um item do carrinho do usuário.
 Para iniciar o servidor em ambiente de desenvolvimento com auto-reload:
 ```bash
 npm run dev
+```
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 <h2 id="proximos-passos"> 🏁 Próximos Passos</h2>
 
 O projeto continua em evolução ativa. As próximas funcionalidades planejadas são:
 
-Módulo de Pedidos (Orders): Implementação do checkout, transformando o carrinho em um pedido finalizado.
-
-Status em Tempo Real: Monitoramento do preparo dos pedidos (Pendente, Em Preparo, Pronto, Entregue).
-
-Integração de Pagamentos: Adição de gateways de pagamento para simulação de transações reais.
-
-Histórico do Cliente: Painel para que o usuário acompanhe seus pedidos anteriores e favoritos.
+- Módulo de Pedidos (Orders): Implementação do checkout, transformando o carrinho em um pedido finalizado.
+- Status em Tempo Real: Monitoramento do preparo dos pedidos (Pendente, Em Preparo, Pronto, Entregue).
+- Integração de Pagamentos: Adição de gateways de pagamento para simulação de transações reais.
+- Histórico do Cliente: Painel para que o usuário acompanhe seus pedidos anteriores e favoritos.
