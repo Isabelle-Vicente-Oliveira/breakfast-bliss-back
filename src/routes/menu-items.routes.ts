@@ -18,5 +18,11 @@ menuRoutes.post("/",
     upload.single("image"),
     menuItemsController.create
 ); menuRoutes.delete("/:id", ensureAuthenticated, verifyUserAuthorization(["admin"]), menuItemsController.delete)
+menuRoutes.patch("/:id",
+    ensureAuthenticated,
+    verifyUserAuthorization(["admin"]),
+    upload.single("image"),
+    menuItemsController.update
+);
 menuRoutes.get("/:id", menuItemsController.show)
 export { menuRoutes }

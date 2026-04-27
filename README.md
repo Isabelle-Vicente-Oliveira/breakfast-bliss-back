@@ -24,10 +24,6 @@ O Breakfast Bliss - Back End é o api por trás de uma plataforma de pedidos de 
 - Multer: Middleware para processamento e armazenamento de imagens de produtos.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-Claro, Isabelle! Detalhar o propósito de cada método HTTP (os "verbos") nas suas rotas é excelente para a documentação, pois mostra que você domina as convenções de uma API RESTful.
-
-Aqui está o conteúdo atualizado para a seção de Estrutura de Rotas, explicando a função de cada método dentro do seu contexto:
-
 <h2 id="rotas"> 🛤️ Estrutura de Rotas</h2>
 
 A API segue os padrões REST, utilizando os métodos HTTP para representar ações específicas sobre os recursos do sistema:
