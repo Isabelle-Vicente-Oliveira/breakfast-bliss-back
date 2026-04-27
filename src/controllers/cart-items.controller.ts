@@ -55,8 +55,10 @@ class CartItemsController {
             include: {
                 menuItem: {
                     select: {
+                        id: true,
                         name: true,
                         price: true,
+                        description: true,
                         imageUrl: true,
                         category: true
                     }
@@ -65,11 +67,15 @@ class CartItemsController {
             orderBy: { createdAt: "desc" }
         })
 
-        const total = cart.reduce((acc, item) => {
+        const totalPrice = cart.reduce((acc, item) => {
             return acc + (Number(item.menuItem.price) * item.quantity)
         }, 0)
 
-        return response.json({ items: cart, total })
+        const totalItem = cart.reduce((acc, item) => {
+            return acc + (item.quantity)
+        }, 0)
+
+        return response.json({ items: cart, totalPrice, totalItem })
     }
 
     async update(request: Request, response: Response) {
