@@ -1,35 +1,3 @@
-# Project Name
-
-> A brief 1-2 sentence overview of what your project does and the main problem it solves.
-
----
-
-## Motivation
-
-Explain the background and purpose behind creating this project. Highlight your core learning objectives, technical challenges tackled, or the real-world problem this application addresses.
-
----
-
-## Quick Start
-
-Follow these steps to get a local copy up and running on your machine.
-
-### Prerequisites
-
-Ensure you have the following installed:
-
-* [Node.js](https://nodejs.org/) (v18 or higher)
-* [Git](https://git-scm.com/)
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/your-username/your-repo.git](https://github.com/your-username/your-repo.git)
-
-## Usage
-
-## Contributing
 <p align="center"> 
   <img src=".github/logo.png" alt="Breakfast Bliss Logo" width="150px" height="150px">
 </p>
