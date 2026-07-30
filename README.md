@@ -1,5 +1,3 @@
-# Breakfast Bliss
-
 <p align="center"> 
   <img src=".github/logo.png" alt="Breakfast Bliss Logo" width="150px" height="150px">
 </p>
