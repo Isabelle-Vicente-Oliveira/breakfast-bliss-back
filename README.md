@@ -28,6 +28,8 @@ Ensure you have the following installed:
    git clone [https://github.com/your-username/your-repo.git](https://github.com/your-username/your-repo.git)
 
 ## Usage
+
+## Contributing
 <p align="center"> 
   <img src=".github/logo.png" alt="Breakfast Bliss Logo" width="150px" height="150px">
 </p>
